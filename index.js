@@ -4,9 +4,17 @@ const app = express();
 
 var path = require('path');
 
-app.get('/', (req, res)=> {
-    res.sendFile(path.join(__dirname + '/index/index.html'));
+app.use(express.static('index'));
+app.use(express.raw());
 
+app.get('/', (req, res)=> {
+    // res.sendFile(path.join(__dirname + '/index/index.html'));
+    // res.sendFile(path.join(__dirname + '/index/webgl-demo.js'));
+    // res.sendFile(path.join(__dirname + '/index/tetris-game.js'));
+    //res.sendFile(path.join(__dirname + '/index/webgl.css'));
+    res.send(1);
+    console.log(req.header);
+    console.log("lmap");
 });
 
 app.get('/noob', (req, res)=> {
